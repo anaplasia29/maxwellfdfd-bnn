@@ -1,12 +1,12 @@
 import pandas as pd
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D, Activation
-from keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Activation
+from tensorflow.keras.optimizers import Adam
 import matplotlib.pyplot as plt
-from keras import backend as K
+from tensorflow.keras import backend as K
 import tensorflow as tf
-from keras import losses
+from tensorflow.keras import losses
 from PIL import Image
 import numpy as np
 import argparse
@@ -19,7 +19,7 @@ from sklearn.svm import SVR
 from sklearn.externals import joblib
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
-
+from tqdm import tqdm
 
 class CustomLoss:
     def __init__(self, _loss_function):
@@ -300,7 +300,7 @@ if __name__ == '__main__':
     print('Data Loading... Train dataset Start.')
 
     # load Train dataset
-    for data in DATASETS:
+    for data in tqdm(DATASETS):
         dataframe = pd.read_csv(os.path.join(DATAPATH, '{}.csv'.format(data)), delim_whitespace=False, header=None)
         dataset = dataframe.values
 
@@ -340,7 +340,7 @@ if __name__ == '__main__':
 
     x_validation = []
     y_validation = []
-    for data in DATASETS:
+    for data in tqdm(DATASETS):
         dataframe = pd.read_csv(os.path.join(DATAPATH, '{}.csv'.format(data)), delim_whitespace=False, header=None)
         dataset = dataframe.values
 

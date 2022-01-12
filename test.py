@@ -1,11 +1,11 @@
 from math import sqrt
 from PIL import Image
 import pandas as pd
-from keras import backend as K
-from keras import losses
-from keras.layers import Average
-from keras.models import Model
-from keras.models import model_from_json
+from tensorflow.keras import backend as K
+from tensorflow.keras import losses
+from tensorflow.keras.layers import Average
+from tensorflow.keras.models import Model
+from tensorflow.keras.models import model_from_json
 from sklearn.externals import joblib
 from sklearn.metrics import mean_squared_error, r2_score
 from scipy.signal import find_peaks
@@ -124,53 +124,6 @@ def rescale(arr, std, mean):
 
 # PARAMETERS
 MODEL_SHAPE_TYPE = 'rect'
-## TRAIN
-# DATAPATH = os.path.join('data', 'train')
-# DATASETS = [
-#     'binary_501',
-#     'binary_502',
-#     'binary_503',
-#     'binary_504',
-#     'binary_505',
-#     'binary_506',
-#     'binary_507',
-#     'binary_508',
-#     'binary_509',
-#     'binary_510',
-#     'binary_511',
-#     'binary_512',
-#     'binary_1001',
-#     'binary_1002',
-#     'binary_1003',
-#     'binary_rl_fix_501',
-#     'binary_rl_fix_502',
-#     'binary_rl_fix_503',
-#     'binary_rl_fix_504',
-#     'binary_rl_fix_505',
-#     'binary_rl_fix_506',
-#     'binary_rl_fix_507',
-#     'binary_rl_fix_508',
-#     'binary_rl_fix_509',
-#     'binary_rl_fix_510',
-#     'binary_rl_fix_511',
-#     'binary_rl_fix_512',
-#     'binary_rl_fix_513',
-#     'binary_rl_fix_514',
-#     'binary_rl_fix_515',
-#     'binary_rl_fix_516',
-#     'binary_rl_fix_517',
-#     'binary_rl_fix_518',
-#     'binary_rl_fix_519',
-#     'binary_rl_fix_520',
-#     'binary_rl_fix_1001',
-#     'binary_rl_fix_1002',
-#     'binary_rl_fix_1003',
-#     'binary_rl_fix_1004',
-#     'binary_rl_fix_1005',
-#     'binary_rl_fix_1006',
-#     'binary_rl_fix_1007',
-#     'binary_rl_fix_1008',
-# ]
 
 ## TEST
 DATAPATH = os.path.join('data', 'test')
@@ -185,36 +138,15 @@ DATASETS = [
     'binary_rl_fix_test_1005',
     'binary_test_1101',
 ]
-#
-# ## VALIDATION
-# DATAPATH = os.path.join('data', 'valid')
-# DATASETS = [
-#     'binary_1004',
-#     'binary_test_1001',
-#     'binary_test_1002',
-#     'binary_rl_fix_1009',
-#     'binary_rl_fix_1010',
-#     'binary_rl_fix_1011',
-#     'binary_rl_fix_1012',
-#     'binary_rl_fix_1013',
-#     'binary_rl_fix_test_1001',
-# ]
 
 model_names = [
     'RMSE',
-    'RMSE + diff.RMSE',
-    'RMSE + diff.BCE'
 ]
-# model_name_details = [
-#     'cnn_4l16_d0.4_noBN_128_300/rmse_rect_1',
-#     'cnn_4l16_d0.4_noBN_type1_128_300/rmse_rect_1',
-#     'cnn_4l16_d0.4_noBN_type2_128_300/rmse_rect_1',
-# ]
-#
+
 model_name_details = [
-    'cnn_4l16_d0.4_noBN_128_300/rmse_rect_1',
-    'cnn_4l16_d0.4_noBN_128_300/rmse,diff_bce_rect_1',
-    'cnn_4l16_d0.4_noBN_128_300/rmse,diff_rmse_rect_1',
+    'cnn_128_5/rmse_rect_1',
+    # 'cnn_128_300/rmse_rect_1',
+    # 'cnn_128_1000/rmse_rect_1',
 ]
 
 colors=[
